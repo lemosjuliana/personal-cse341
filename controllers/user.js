@@ -39,19 +39,14 @@ const getSingleUser = async (req, res, next) => {
 // of the new contact and a 201 status
 const createUser = async (req, res) => {
   try {
-    const user = {
-      username: req.body.username,
-      species: req.body.species,
-      breed: req.body.breed,
-      color: req.body.color,
-      gender: req.body.gender,
-      age: req.body.age
-    };
-    const response = await mongodb.getDb().db('Vet').collection('users').insertOne(user);
+    const user = req.body; // Assuming req.body contains the user data
+
+    const response = await mongodb.getDb().db('Vet').collection('users').insertOne({ user });
+
     if (response.acknowledged) {
-      res.status(201).json(response);
+      res.status(201).json({ message: 'User created successfully' });
     } else {
-      res.status(500).json(response.error);
+      res.status(500).json({ error: 'Failed to create user' });
     }
   } catch (error) {
     console.error(error);
@@ -59,8 +54,9 @@ const createUser = async (req, res) => {
   }
 };
 
-  module.exports = { getAllUsers, getSingleUser, createUser };
-  // module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };
+module.exports = { getAllUsers, getSingleUser, createUser };
+  
+// module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };
 
   
 
