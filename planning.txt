@@ -1,0 +1,31 @@
+User 
+    username                                | String UNIQUE
+    id                                      | MangoDB_ID
+    species                                 | String           
+    breed                                   | String
+    color                                   | String
+    gender                                  | String
+    age                                     | Number
+    owner                                   | OwnerItem
+        ownerEmail                          | String
+        ownerPhoneNumber                    | String
+        ownerAddress                        | String 
+    vaccines                                | Vaccine []
+        vaccineType                         | String
+        date                                | Date
+        secondDose                          | Boolean
+    Vet                                     | VetItem
+        vetName                             | String
+        vetSpecialization                   | String []
+        vetEmail                            | String
+        vetPhoneNumber                      | String
+    
+Reviews
+    id                                      | MangoDB_ID
+    rating                                  | Number           
+    comment                                 | String
+   
+    
+
+
+

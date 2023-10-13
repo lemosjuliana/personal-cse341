@@ -1,0 +1,153 @@
+[
+    {
+        "user": {
+            "username": "fluffy123",
+            "species": "Dog",
+            "breed": "Golden Retriever",
+            "color": "Golden",
+            "gender": "Female",
+            "age": 3,
+            "owner": {
+                "ownerName": "John Davidson",
+                "ownerEmail": "johnd@gmail.com",
+                "ownerPhoneNumber": "555-555-5555",
+                "ownerAddress": "123 Main Street"
+            },
+            "vaccines": [
+                {
+                    "vaccineType": "Rabies",
+                    "date": "2022-05-15",
+                    "secondDose": false
+                },
+                {
+                    "vaccineType": "Distemper",
+                    "date": "2022-06-20",
+                    "secondDose": true
+                }
+            ],
+            "vet": {
+                "vetName": "Dr. Smith",
+                "vetSpecialization": ["Internal Medicine", "Surgery"],
+                "vetEmail": "drsmith@gmail.com",
+                "vetPhoneNumber": "555-555-5556"
+            }
+        }
+    },
+    {
+        "user": {
+            "username": "whiskers789",
+            "species": "Cat",
+            "breed": "Siamese",
+            "color": "Seal Point",
+            "gender": "Male",
+            "age": 5,
+            "owner": {
+                "ownerName": "Jane Hoover",
+                "ownerEmail": "jane.hoover@gmail.com",
+                "ownerPhoneNumber": "555-555-5557",
+                "ownerAddress": "456 Oak Avenue"
+            },
+            "vaccines": [
+                {
+                    "vaccineType": "Feline Leukemia",
+                    "date": "2022-04-10",
+                    "secondDose": false
+                }
+            ],
+            "vet": {
+                "vetName": "Dr. Johnson",
+                "vetSpecialization": ["Dentistry"],
+                "vetEmail": "drjohnson@gmail.com",
+                "vetPhoneNumber": "555-555-5558"
+            }
+        }
+    },
+    {
+        "user": {
+            "username": "buddy456",
+            "species": "Dog",
+            "breed": "Labrador Retriever",
+            "color": "Chocolate",
+            "gender": "Male",
+            "age": 2,
+            "owner": {
+                "ownerName": "Sarah Williams",
+                "ownerEmail": "sarahw@gmail.com",
+                "ownerPhoneNumber": "555-555-5559",
+                "ownerAddress": "789 Pine Street"
+            },
+            "vaccines": [
+                {
+                    "vaccineType": "Bordetella",
+                    "date": "2022-07-05",
+                    "secondDose": false
+                }
+            ],
+            "vet": {
+                "vetName": "Dr. Davis",
+                "vetSpecialization": ["Cardiology"],
+                "vetEmail": "drdavis@gmail.com",
+                "vetPhoneNumber": "555-555-5510"
+            }
+        }
+    },
+    {
+        "user": {
+            "username": "mittens101",
+            "species": "Cat",
+            "breed": "Persian",
+            "color": "White",
+            "gender": "Female",
+            "age": 4,
+            "owner": {
+                "ownerName": "Michael Turner",
+                "ownerEmail": "michael.turner@gmail.com",
+                "ownerPhoneNumber": "555-555-5511",
+                "ownerAddress": "101 Elm Street"
+            },
+            "vaccines": [
+                {
+                    "vaccineType": "Rhinotracheitis",
+                    "date": "2022-03-25",
+                    "secondDose": true
+                }
+            ],
+            "vet": {
+                "vetName": "Dr. Anderson",
+                "vetSpecialization": ["Dermatology"],
+                "vetEmail": "dranderson@gmail.com",
+                "vetPhoneNumber": "555-555-5512"
+            }
+        }
+    },
+    {
+        "user": {
+            "username": "maximus007",
+            "species": "Dog",
+            "breed": "German Shepherd",
+            "color": "Black and Tan",
+            "gender": "Male",
+            "age": 4,
+            "owner": {
+                "ownerName": "Mark Johnson",
+                "ownerEmail": "mark.johnson@gmail.com",
+                "ownerPhoneNumber": "555-555-5513",
+                "ownerAddress": "202 Maple Avenue"
+            },
+            "vaccines": [
+                {
+                    "vaccineType": "Parvovirus",
+                    "date": "2022-06-10",
+                    "secondDose": true
+                }
+            ],
+            "vet": {
+                "vetName": "Dr. Martinez",
+                "vetSpecialization": ["Orthopedics"],
+                "vetEmail": "drmartinez@gmail.com",
+                "vetPhoneNumber": "555-555-5514"
+            }
+        }
+        
+    }
+]
