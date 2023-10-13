@@ -8,10 +8,10 @@ const doc = {
     title: 'My API',
     description: 'Contacts API',
   },
-  //host: 'lemos-cse341-node.onrender.com',
-  //schemes: ['https'],
-  host: 'localhost',
-  schemes: ['http'],
+  host: 'lemos-cse341-node.onrender.com',
+  schemes: ['https'],
+  //host: 'localhost',
+  //schemes: ['http'],
 };
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
