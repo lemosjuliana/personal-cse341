@@ -1,57 +1,69 @@
-const db = require('../models');
-const User = db.user;
+// Importing Dependencies:
+const mongodb = require('../db/connect'); // is a reference to my database connection
+const ObjectId = require('mongodb').ObjectId; // is a type provided by the MongoDB driver. Allows me to work with MongoDB's unique identifiers.
 
-exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.username || !req.body.password) {
-    res.status(400).send({ message: 'Content can not be empty!' });
-    return;
+// Function that handles a GET request.
+// It first retrieves the collection named 
+// -contacts- from the database:
+const getAllUsers = async (req, res, next) => {
+  try {
+    const result = await mongodb.getDb().db('Vet').collection('users').find().toArray();
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
-
-  const user = new User(req.body);
-  user
-    .save()
-    .then((data) => {
-      console.log(data);
-      res.status(201).send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while creating the user.'
-      });
-    });
 };
 
-exports.getAll = (req, res) => {
-  User.find({}, (err, users) => {
-    if (err) {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving users.'
-      });
-      return;
-    }
-
-    // Extracting user data from the array of objects
-    const userData = users.map(user => user.user);
-
-    res.send(userData);
-  });
-};
-
-
-exports.getUser = (req, res) => {
-  const username = req.params.username;
-  User.find({ username: username })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving users.'
-      });
-    });
-};
   
+// Similar to -getAll- function.
+const getSingleUser = async (req, res, next) => {
+  try {
+    const userId = new ObjectId(req.params.id);
+    const result = await mongodb
+      .getDb()
+      .db('Vet')
+      .collection('users')
+      .find({ _id: userId })
+      .toArray();
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).json(result[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+// Create a POST route for creating new contacts that returns the ID 
+// of the new contact and a 201 status
+const createUser = async (req, res) => {
+  try {
+    const user = {
+      username: req.body.username,
+      species: req.body.species,
+      breed: req.body.breed,
+      color: req.body.color,
+      gender: req.body.gender,
+      age: req.body.age
+    };
+    const response = await mongodb.getDb().db('Vet').collection('users').insertOne(user);
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res.status(500).json(response.error);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+  module.exports = { getAllUsers, getSingleUser, createUser };
+  // module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };
+
+  
+
 // // Create a PUT route for updating a contact that 
 // // returns a 204 status
 // const updateContact = async (req, res) => {
@@ -64,7 +76,7 @@ exports.getUser = (req, res) => {
 //       favoriteColor: req.body.favoriteColor,
 //       birthday: req.body.birthday
 //     };
-//     const response = await mongodb.getDb().db('cse-341').collection('contacts').replaceOne({ _id: userId }, contact);
+//     const response = await mongodb.getDb().db('Vet').collection('users').replaceOne({ _id: userId }, contact);
 //     if (response.modifiedCount > 0) {
 //       res.status(204).send();
 //     } else {
@@ -82,7 +94,7 @@ exports.getUser = (req, res) => {
 // const deleteContact = async (req, res) => {
 //   try {
 //     const userId = new ObjectId(req.params.id);
-//     const response = await mongodb.getDb().db('cse-341').collection('contacts').deleteOne({ _id: userId });
+//     const response = await mongodb.getDb().db('Vet').collection('users').deleteOne({ _id: userId });
 //     if (response.deletedCount > 0) {
 //       res.status(200).send();
 //     } else {
