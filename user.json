@@ -1,6 +1,5 @@
 [
     {
-        "user": {
             "username": "fluffy123",
             "species": "Dog",
             "breed": "Golden Retriever",
@@ -31,10 +30,9 @@
                 "vetEmail": "drsmith@gmail.com",
                 "vetPhoneNumber": "555-555-5556"
             }
-        }
+
     },
     {
-        "user": {
             "username": "whiskers789",
             "species": "Cat",
             "breed": "Siamese",
@@ -60,10 +58,8 @@
                 "vetEmail": "drjohnson@gmail.com",
                 "vetPhoneNumber": "555-555-5558"
             }
-        }
     },
     {
-        "user": {
             "username": "buddy456",
             "species": "Dog",
             "breed": "Labrador Retriever",
@@ -89,10 +85,9 @@
                 "vetEmail": "drdavis@gmail.com",
                 "vetPhoneNumber": "555-555-5510"
             }
-        }
+
     },
     {
-        "user": {
             "username": "mittens101",
             "species": "Cat",
             "breed": "Persian",
@@ -118,10 +113,8 @@
                 "vetEmail": "dranderson@gmail.com",
                 "vetPhoneNumber": "555-555-5512"
             }
-        }
     },
     {
-        "user": {
             "username": "maximus007",
             "species": "Dog",
             "breed": "German Shepherd",
@@ -147,7 +140,6 @@
                 "vetEmail": "drmartinez@gmail.com",
                 "vetPhoneNumber": "555-555-5514"
             }
-        }
         
     }
 ]
