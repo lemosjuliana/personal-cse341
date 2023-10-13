@@ -5,7 +5,7 @@
     "description": "Contacts API",
     "version": "1.0.0"
   },
-  "host": "lemos-cse341-personal.onrender.com",
+  "host": "lemos-cse341-node.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -24,6 +24,44 @@
     "/user/": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -37,6 +75,9 @@
     "/review/": {
       "get": {
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -55,13 +96,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
+                "rating": {
                   "example": "any"
                 },
-                "content": {
-                  "example": "any"
-                },
-                "userId": {
+                "comment": {
                   "example": "any"
                 }
               }
