@@ -1,5 +1,6 @@
 const db = require('../models');
 const User = db.user;
+
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.username || !req.body.password) {
@@ -22,20 +23,17 @@ exports.create = (req, res) => {
 };
 
 exports.getAll = (req, res) => {
-  User.find({}, (err, users) => {
-    if (err) {
+  User.find({})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
       res.status(500).send({
         message: err.message || 'Some error occurred while retrieving users.'
       });
-      return;
-    }
-
-    // Extracting user data from the array of objects
-    const userData = users.map(user => user.user);
-
-    res.send(userData);
-  });
+    });
 };
+
 
 
 exports.getUser = (req, res) => {
