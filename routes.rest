@@ -117,22 +117,22 @@ POST https://lemos-cse341-personal.onrender.com/users HTTP/1.1
 content-type: application/json
 
 {
-    "username": "maximus007",
+    "username": "Buddy",
     "species": "Dog",
     "breed": "German Shepherd",
     "color": "Black and Tan",
     "gender": "Male",
-    "age": 4,
+    "age": 6,
     "owner": {
-        "ownerName": "Mark Johnson",
-        "ownerEmail": "mark.johnson@gmail.com",
+        "ownerName": "Sarah Johnson",
+        "ownerEmail": "sarah.johnson@gmail.com",
         "ownerPhoneNumber": "555-555-5555",
-        "ownerAddress": "202 Maple Avenue"
+        "ownerAddress": "204 Maple Avenue"
     },
     "vaccines": [
         {
             "vaccineType": "Parvovirus",
-            "date": "2022-06-10",
+            "date": "2022-06-18",
             "secondDose": true
         }
     ],
@@ -142,7 +142,7 @@ content-type: application/json
         "vetEmail": "drmartinez@gmail.com",
         "vetPhoneNumber": "555-555-5555"
     }
-  }
+}
 
 ### Update User
 PUT http://lemos-cse341-personal.onrender.com/users/6529f3904db2eab77d05af11 HTTP/1.1
@@ -152,9 +152,9 @@ content-type: application/json
     "username": "Buddy",
     "species": "Dog",
     "breed": "German Shepherd",
-    "color": "Black and Tan",
-    "gender": "Male",
-    "age": 6,
+    "color": "Black",
+    "gender": "Female",
+    "age": 4,
     "owner": {
         "ownerName": "Sarah Johnson",
         "ownerEmail": "sarah.johnson@gmail.com",

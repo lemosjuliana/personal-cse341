@@ -37,7 +37,6 @@ const getSingleUser = async (req, res, next) => {
 };
 
 
-// Create a POST 
 const createUser = async (req, res) => {
   try {
     const user = req.body; // Assuming req.body contains the user data
@@ -45,7 +44,8 @@ const createUser = async (req, res) => {
     const response = await mongodb.getDb().db('Vet').collection('users').insertOne({ user });
 
     if (response.acknowledged) {
-      res.status(201).json({ message: 'User created successfully' });
+      const newUserId = response.insertedId; // Get the new user ID
+      res.status(201).json({ message: 'User created successfully', userId: newUserId });
     } else {
       res.status(500).json({ error: 'Failed to create user' });
     }
@@ -54,6 +54,7 @@ const createUser = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
 
 // I still have to create the PUT and DELETE functions (they are not required for Lesson 05)
 
