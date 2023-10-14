@@ -16,8 +16,7 @@
         "description": "",
         "responses": {
           "default": {
-            "title": "Vet Website",
-            "description": "teste"
+            "description": ""
           }
         }
       }
@@ -101,15 +100,19 @@
         }
       }
     },
-    "/user/{id}": {
+    "/user/by-username/{username}": {
       "get": {
-        "description": "",
+        "description": "Get user by username",
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
-            "$ref": "#/parameters/UserId"
+            "name": "username",
+            "in": "path",
+            "description": "Username of the user",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
@@ -168,11 +171,11 @@
             "description": "User object",
             "required": true,
             "schema": {
-              "$ref": "#/parameters/UserData"
+              "$ref": "#/parameters/ReviewData"
             }
           },
           {
-            "$ref": "#/parameters/UserId"
+            "$ref": "#/parameters/ReviewId"
           }
         ],
         "responses": {
@@ -188,7 +191,7 @@
         "description": "Delete review - NOT IMPLEMENTED",
         "parameters": [
           {
-            "$ref": "#/parameters/UserId"
+            "$ref": "#/parameters/ReviewId"
           }
         ],
         "responses": {
