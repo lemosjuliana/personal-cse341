@@ -15,15 +15,14 @@ const getAllUsers = async (req, res, next) => {
 };
 
   
-// Gets a single user
 const getSingleUser = async (req, res, next) => {
   try {
-    const userId = new ObjectId(req.params.id);
+    const username = req.params.username; // Assuming the parameter is called 'username'
     const result = await mongodb
       .getDb()
       .db('Vet')
       .collection('users')
-      .find({ _id: userId })
+      .find({ username: username }) // Change the query to search by username
       .toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result[0]);
@@ -32,6 +31,7 @@ const getSingleUser = async (req, res, next) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
 
 // Create a POST 
 const createUser = async (req, res) => {

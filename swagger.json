@@ -100,7 +100,7 @@
         }
       }
     },
-    "/user/by-username/{username}": {
+    "/user/{username}": {
       "get": {
         "description": "Get user by username",
         "produces": [
