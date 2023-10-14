@@ -7,9 +7,7 @@
   },
   "host": "lemos-cse341-personal.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/api-docs": {
       "get": {
@@ -24,9 +22,7 @@
     "/user/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -40,7 +36,13 @@
         "description": "Create a new user",
         "parameters": [
           {
-            "$ref": "#/parameters/UserData"
+            "in": "body",
+            "name": "user",
+            "description": "User object",
+            "required": true,
+            "schema": {
+              "$ref": "#/parameters/UserData"
+            }
           }
         ],
         "responses": {
@@ -52,15 +54,52 @@
           }
         }
       },
-      "put": {},
-      "delete": {}
+      "put": {
+        "description": "Update a user",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "description": "User object",
+            "required": true,
+            "schema": {
+              "$ref": "#/parameters/UserData"
+            }
+          },
+          {
+            "$ref": "#/parameters/UserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a user",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     },
     "/user/{id}": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "$ref": "#/parameters/UserId"
@@ -79,9 +118,7 @@
     "/review/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -95,7 +132,13 @@
         "description": "Create a new review",
         "parameters": [
           {
-            "$ref": "#/parameters/ReviewData"
+            "in": "body",
+            "name": "review",
+            "description": "Review object",
+            "required": true,
+            "schema": {
+              "$ref": "#/parameters/ReviewData"
+            }
           }
         ],
         "responses": {
@@ -111,9 +154,7 @@
     "/review/{id}": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "$ref": "#/parameters/ReviewId"
@@ -128,132 +169,133 @@
           }
         }
       }
-    },
-    "parameters": {
-      "UserData": {
-        "in": "body",
-        "name": "user",
-        "description": "User object",
-        "required": true,
-        "schema": {
-          "type": "object",
-          "properties": {
-            "username": {
-              "type": "string"
-            },
-            "species": {
-              "type": "string"
-            },
-            "breed": {
-              "type": "string"
-            },
-            "color": {
-              "type": "string"
-            },
-            "gender": {
-              "type": "string"
-            },
-            "age": {
-              "type": "number"
-            },
-            "owner": {
-              "type": "object",
-              "properties": {
-                "ownerName": {
-                  "type": "string"
-                },
-                "ownerEmail": {
-                  "type": "string",
-                  "format": "email"
-                },
-                "ownerPhoneNumber": {
-                  "type": "string",
-                  "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
-                },
-                "ownerAddress": {
-                  "type": "string"
-                }
+    }
+  },
+  "parameters": {
+    "UserData": {
+      "in": "body",
+      "name": "user",
+      "description": "User object",
+      "required": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "species": {
+            "type": "string"
+          },
+          "breed": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          },
+          "owner": {
+            "type": "object",
+            "properties": {
+              "ownerName": {
+                "type": "string"
               },
-              "required": [
-                "ownerName",
-                "ownerEmail",
-                "ownerPhoneNumber",
-                "ownerAddress"
-              ]
-            },
-            "vaccines": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "vaccineType": {
-                    "type": "string"
-                  },
-                  "date": {
-                    "type": "string",
-                    "format": "date"
-                  },
-                  "secondDose": {
-                    "type": "boolean"
-                  }
-                },
-                "required": [
-                  "vaccineType",
-                  "date",
-                  "secondDose"
-                ]
+              "ownerEmail": {
+                "type": "string",
+                "format": "email"
+              },
+              "ownerPhoneNumber": {
+                "type": "string",
+                "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
+              },
+              "ownerAddress": {
+                "type": "string"
               }
             },
-            "vet": {
+            "required": [
+              "ownerName",
+              "ownerEmail",
+              "ownerPhoneNumber",
+              "ownerAddress"
+            ]
+          },
+          "vaccines": {
+            "type": "array",
+            "items": {
               "type": "object",
               "properties": {
-                "vetName": {
+                "vaccineType": {
                   "type": "string"
                 },
-                "vetSpecialization": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "vetEmail": {
+                "date": {
                   "type": "string",
-                  "format": "email"
+                  "format": "date"
                 },
-                "vetPhoneNumber": {
-                  "type": "string",
-                  "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
+                "secondDose": {
+                  "type": "boolean"
                 }
               },
               "required": [
-                "vetName",
-                "vetSpecialization",
-                "vetEmail",
-                "vetPhoneNumber"
+                "vaccineType",
+                "date",
+                "secondDose"
               ]
             }
           },
-          "required": [
-            "username",
-            "species",
-            "breed",
-            "color",
-            "gender",
-            "age",
-            "owner",
-            "vaccines",
-            "vet"
-          ]
-        }
-      },
-      "UserId": {
-        "name": "id",
-        "in": "path",
-        "description": "User ID",
-        "required": true,
-        "type": "string"
-      },
-      "ReviewData": {
+          "vet": {
+            "type": "object",
+            "properties": {
+              "vetName": {
+                "type": "string"
+              },
+              "vetSpecialization": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "vetEmail": {
+                "type": "string",
+                "format": "email"
+              },
+              "vetPhoneNumber": {
+                "type": "string",
+                "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
+              }
+            },
+            "required": [
+              "vetName",
+              "vetSpecialization",
+              "vetEmail",
+              "vetPhoneNumber"
+            ]
+          }
+        },
+        "required": [
+          "username",
+          "species",
+          "breed",
+          "color",
+          "gender",
+          "age",
+          "owner",
+          "vaccines",
+          "vet"
+        ]
+      }
+    },
+    "UserId": {
+      "name": "id",
+      "in": "path",
+      "description": "User ID",
+      "required": true,
+      "type": "string"
+    },
+    "ReviewData": {
         "in": "body",
         "name": "review",
         "description": "Review object",
@@ -286,4 +328,5 @@
       }
     }
   }
-}
+
+
