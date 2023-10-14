@@ -9,6 +9,20 @@
   "basePath": "/",
   "schemes": [
     "https"
+  ], 
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Operation about the Pets"
+    },
+    {
+      "name": "Reviews",
+      "description": "Operations about Review"
+    },
+    {
+      "name": "Not Implemented Yet",
+      "description": "Operations that will be implemented"
+    }
   ],
   "paths": {
     "/api-docs": {
@@ -23,6 +37,7 @@
     },
     "/user/": {
       "get": {
+        "tags": ["Users"],
         "description": "Gets all users",
         "produces": [
           "application/json"
@@ -37,6 +52,7 @@
         }
       },
       "post": {
+        "tags": ["Users"],
         "description": "Creates a new user",
         "parameters": [
           {
@@ -59,6 +75,7 @@
         }
       },
       "put": {
+        "tags": ["Not Implemented Yet"],
         "description": "Updates a user - NOT IMPLEMENTED",
         "parameters": [
           {
@@ -84,6 +101,7 @@
         }
       },
       "delete": {
+        "tags": ["Not Implemented Yet"],
         "description": "Delete a user - NOT IMPLEMENTED",
         "parameters": [
           {
@@ -102,6 +120,7 @@
     },
     "/user/{username}": {
       "get": {
+        "tags": ["Users"],
         "description": "Get user by username",
         "produces": [
           "application/json"
@@ -127,6 +146,7 @@
     },
     "/review/": {
       "get": {
+        "tags": ["Reviews"],
         "description": "",
         "produces": [
           "application/json"
@@ -141,6 +161,7 @@
         }
       },
       "post": {
+        "tags": ["Reviews"],
         "description": "Creates a new review",
         "parameters": [
           {
@@ -163,6 +184,7 @@
         }
       },
       "put": {
+        "tags": ["Not Implemented Yet"],
         "description": "Updates a review - NOT IMPLEMENTED",
         "parameters": [
           {
@@ -188,6 +210,7 @@
         }
       },
       "delete": {
+        "tags": ["Not Implemented Yet"],
         "description": "Delete review - NOT IMPLEMENTED",
         "parameters": [
           {
@@ -206,6 +229,7 @@
     },
     "/review/{id}": {
       "get": {
+        "tags": ["Reviews"],
         "description": "",
         "produces": [
           "application/json"
