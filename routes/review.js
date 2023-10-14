@@ -4,7 +4,7 @@ const router = express.Router();
 const reviewController = require('../controllers/review');
 
 router.get('/', reviewController.getAllReviews);
-router.get('/:id', usersController.getSingleReview);
+router.get('/:id', reviewController.getSingleReview);
 router.post('/', reviewController.createReview);
 
 module.exports = router;
