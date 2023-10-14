@@ -7,14 +7,16 @@
   },
   "host": "lemos-cse341-personal.onrender.com",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/api-docs": {
       "get": {
         "description": "",
         "responses": {
           "default": {
-            "description": ""
+            "description": "Personal Assignment - Vet Wwebsite"
           }
         }
       }
@@ -22,7 +24,9 @@
     "/user/": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -99,7 +103,9 @@
     "/user/{id}": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "$ref": "#/parameters/UserId"
@@ -118,7 +124,9 @@
     "/review/": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -154,7 +162,9 @@
     "/review/{id}": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "$ref": "#/parameters/ReviewId"
@@ -296,37 +306,39 @@
       "type": "string"
     },
     "ReviewData": {
-        "in": "body",
-        "name": "review",
-        "description": "Review object",
-        "required": true,
-        "schema": {
-          "type": "object",
-          "properties": {
-            "rating": {
-              "type": "integer",
-              "minimum": 1,
-              "maximum": 5
-            },
-            "comment": {
-              "type": "string",
-              "maxLength": 200
-            }
+      "in": "body",
+      "name": "review",
+      "description": "Review object",
+      "required": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "rating": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
           },
-          "required": [
-            "rating",
-            "comment"
-          ]
+          "comment": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "rating",
+          "comment"
+        ],
+        "example": {
+          "rating": 5,
+          "comment": "This is a great review!"
         }
-      },
-      "ReviewId": {
-        "name": "id",
-        "in": "path",
-        "description": "Review ID",
-        "required": true,
-        "type": "string"
       }
+    },
+    "ReviewId": {
+      "name": "id",
+      "in": "path",
+      "description": "Review ID",
+      "required": true,
+      "type": "string"
     }
   }
-
-
+}
