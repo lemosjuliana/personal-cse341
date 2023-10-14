@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Contacts API",
+    "title": "Vet Website",
+    "description": "This is a website that registers pets and collects reviews from their owners",
     "version": "1.0.0"
   },
   "host": "lemos-cse341-personal.onrender.com",
@@ -16,14 +16,15 @@
         "description": "",
         "responses": {
           "default": {
-            "description": "Personal Assignment - Vet Wwebsite"
+            "title": "Vet Website",
+            "description": "teste"
           }
         }
       }
     },
     "/user/": {
       "get": {
-        "description": "",
+        "description": "Gets all users",
         "produces": [
           "application/json"
         ],
@@ -37,7 +38,7 @@
         }
       },
       "post": {
-        "description": "Create a new user",
+        "description": "Creates a new user",
         "parameters": [
           {
             "in": "body",
@@ -59,7 +60,7 @@
         }
       },
       "put": {
-        "description": "Update a user",
+        "description": "Updates a user - NOT IMPLEMENTED",
         "parameters": [
           {
             "in": "body",
@@ -84,7 +85,7 @@
         }
       },
       "delete": {
-        "description": "Delete a user",
+        "description": "Delete a user - NOT IMPLEMENTED",
         "parameters": [
           {
             "$ref": "#/parameters/UserId"
@@ -137,7 +138,7 @@
         }
       },
       "post": {
-        "description": "Create a new review",
+        "description": "Creates a new review",
         "parameters": [
           {
             "in": "body",
@@ -152,6 +153,47 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "Updates a review - NOT IMPLEMENTED",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "description": "User object",
+            "required": true,
+            "schema": {
+              "$ref": "#/parameters/UserData"
+            }
+          },
+          {
+            "$ref": "#/parameters/UserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete review - NOT IMPLEMENTED",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"
