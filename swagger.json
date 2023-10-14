@@ -7,9 +7,7 @@
   },
   "host": "lemos-cse341-personal.onrender.com",
   "basePath": "/",
-  "schemes": [
-    "https"
-  ],
+  "schemes": ["https"],
   "paths": {
     "/api-docs": {
       "get": {
@@ -24,9 +22,7 @@
     "/user/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -37,7 +33,12 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new user",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserData"
+          }
+        ],
         "responses": {
           "201": {
             "description": "Created"
@@ -51,15 +52,10 @@
     "/user/{id}": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "$ref": "#/parameters/UserId"
           }
         ],
         "responses": {
@@ -75,9 +71,7 @@
     "/review/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -115,6 +109,107 @@
           }
         }
       }
+    }
+  },
+  "parameters": {
+    "UserData": {
+      "in": "body",
+      "name": "user",
+      "description": "User object",
+      "required": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "species": {
+            "type": "string"
+          },
+          "breed": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number"
+          },
+          "owner": {
+            "type": "object",
+            "properties": {
+              "ownerName": {
+                "type": "string"
+              },
+              "ownerEmail": {
+                "type": "string",
+                "format": "email"
+              },
+              "ownerPhoneNumber": {
+                "type": "string",
+                "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
+              },
+              "ownerAddress": {
+                "type": "string"
+              }
+            },
+            "required": ["ownerName", "ownerEmail", "ownerPhoneNumber", "ownerAddress"]
+          },
+          "vaccines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "vaccineType": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "secondDose": {
+                  "type": "boolean"
+                }
+              },
+              "required": ["vaccineType", "date", "secondDose"]
+            }
+          },
+          "vet": {
+            "type": "object",
+            "properties": {
+              "vetName": {
+                "type": "string"
+              },
+              "vetSpecialization": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "vetEmail": {
+                "type": "string",
+                "format": "email"
+              },
+              "vetPhoneNumber": {
+                "type": "string",
+                "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
+              }
+            },
+            "required": ["vetName", "vetSpecialization", "vetEmail", "vetPhoneNumber"]
+          }
+        },
+        "required": ["username", "species", "breed", "color", "gender", "age", "owner", "vaccines", "vet"]
+      }
+    },
+    "UserId": {
+      "name": "id",
+      "in": "path",
+      "description": "User ID",
+      "required": true,
+      "type": "string"
     }
   }
 }
