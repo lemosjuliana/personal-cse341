@@ -14,17 +14,21 @@ const getAllUsers = async (req, res, next) => {
   }
 };
 
-  
+
 const getSingleUser = async (req, res, next) => {
   try {
-    const username = req.params.username; // Assuming the parameter is called 'username'
+    const userId = new ObjectId(req.params.id);  // Assuming the parameter is called 'id'
     const result = await mongodb
       .getDb()
       .db('Vet')
       .collection('users')
-      .find({ username: username }) // Change the query to search by username
+      .find({ _id: userId })
       .toArray();
     res.setHeader('Content-Type', 'application/json');
+    if (!result[0]) {
+      res.status(404).json({ error: 'User not found' });
+      return;
+    }
     res.status(200).json(result[0]);
   } catch (error) {
     console.error(error);
@@ -57,4 +61,3 @@ module.exports = { getAllUsers, getSingleUser, createUser };
 
 
 // module.exports = { getAllUsers, getSingleUser, createUser, updateUser, deleteUser };
-  

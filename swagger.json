@@ -9,7 +9,7 @@
   "basePath": "/",
   "schemes": [
     "https"
-  ], 
+  ],
   "tags": [
     {
       "name": "Users",
@@ -37,7 +37,9 @@
     },
     "/user/": {
       "get": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "Gets all users",
         "produces": [
           "application/json"
@@ -52,7 +54,9 @@
         }
       },
       "post": {
-        "tags": ["Users"],
+        "tags": [
+          "Users"
+        ],
         "description": "Creates a new user",
         "parameters": [
           {
@@ -75,7 +79,9 @@
         }
       },
       "put": {
-        "tags": ["Not Implemented Yet"],
+        "tags": [
+          "Not Implemented Yet"
+        ],
         "description": "Updates a user - NOT IMPLEMENTED",
         "parameters": [
           {
@@ -101,7 +107,9 @@
         }
       },
       "delete": {
-        "tags": ["Not Implemented Yet"],
+        "tags": [
+          "Not Implemented Yet"
+        ],
         "description": "Delete a user - NOT IMPLEMENTED",
         "parameters": [
           {
@@ -118,18 +126,20 @@
         }
       }
     },
-    "/user/{username}": {
+    "/user/{id}": {
       "get": {
-        "tags": ["Users"],
-        "description": "Get user by username",
+        "tags": [
+          "Users"
+        ],
+        "description": "Get user by ID",
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
-            "name": "username",
+            "name": "id",
             "in": "path",
-            "description": "Username of the user",
+            "description": "ID of the user",
             "required": true,
             "type": "string"
           }
@@ -137,6 +147,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "User not found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -146,7 +159,9 @@
     },
     "/review/": {
       "get": {
-        "tags": ["Reviews"],
+        "tags": [
+          "Reviews"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -161,7 +176,9 @@
         }
       },
       "post": {
-        "tags": ["Reviews"],
+        "tags": [
+          "Reviews"
+        ],
         "description": "Creates a new review",
         "parameters": [
           {
@@ -184,7 +201,9 @@
         }
       },
       "put": {
-        "tags": ["Not Implemented Yet"],
+        "tags": [
+          "Not Implemented Yet"
+        ],
         "description": "Updates a review - NOT IMPLEMENTED",
         "parameters": [
           {
@@ -210,7 +229,9 @@
         }
       },
       "delete": {
-        "tags": ["Not Implemented Yet"],
+        "tags": [
+          "Not Implemented Yet"
+        ],
         "description": "Delete review - NOT IMPLEMENTED",
         "parameters": [
           {
@@ -229,7 +250,9 @@
     },
     "/review/{id}": {
       "get": {
-        "tags": ["Reviews"],
+        "tags": [
+          "Reviews"
+        ],
         "description": "",
         "produces": [
           "application/json"
