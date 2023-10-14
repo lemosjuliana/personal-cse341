@@ -51,13 +51,10 @@
             "description": "Internal Server Error"
           }
         }
-      }
+      },
+      "put": {},
+      "delete": {}
     },
-    "put": {
-    },
-    "delete": {
-    }
-  },
     "/user/{id}": {
       "get": {
         "description": "",
@@ -132,160 +129,161 @@
         }
       }
     },
-  "parameters": {
-    "UserData": {
-      "in": "body",
-      "name": "user",
-      "description": "User object",
-      "required": true,
-      "schema": {
-        "type": "object",
-        "properties": {
-          "username": {
-            "type": "string"
-          },
-          "species": {
-            "type": "string"
-          },
-          "breed": {
-            "type": "string"
-          },
-          "color": {
-            "type": "string"
-          },
-          "gender": {
-            "type": "string"
-          },
-          "age": {
-            "type": "number"
-          },
-          "owner": {
-            "type": "object",
-            "properties": {
-              "ownerName": {
-                "type": "string"
-              },
-              "ownerEmail": {
-                "type": "string",
-                "format": "email"
-              },
-              "ownerPhoneNumber": {
-                "type": "string",
-                "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
-              },
-              "ownerAddress": {
-                "type": "string"
-              }
+    "parameters": {
+      "UserData": {
+        "in": "body",
+        "name": "user",
+        "description": "User object",
+        "required": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "username": {
+              "type": "string"
             },
-            "required": [
-              "ownerName",
-              "ownerEmail",
-              "ownerPhoneNumber",
-              "ownerAddress"
-            ]
-          },
-          "vaccines": {
-            "type": "array",
-            "items": {
+            "species": {
+              "type": "string"
+            },
+            "breed": {
+              "type": "string"
+            },
+            "color": {
+              "type": "string"
+            },
+            "gender": {
+              "type": "string"
+            },
+            "age": {
+              "type": "number"
+            },
+            "owner": {
               "type": "object",
               "properties": {
-                "vaccineType": {
+                "ownerName": {
                   "type": "string"
                 },
-                "date": {
+                "ownerEmail": {
                   "type": "string",
-                  "format": "date"
+                  "format": "email"
                 },
-                "secondDose": {
-                  "type": "boolean"
+                "ownerPhoneNumber": {
+                  "type": "string",
+                  "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
+                },
+                "ownerAddress": {
+                  "type": "string"
                 }
               },
               "required": [
-                "vaccineType",
-                "date",
-                "secondDose"
+                "ownerName",
+                "ownerEmail",
+                "ownerPhoneNumber",
+                "ownerAddress"
+              ]
+            },
+            "vaccines": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "vaccineType": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "secondDose": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "vaccineType",
+                  "date",
+                  "secondDose"
+                ]
+              }
+            },
+            "vet": {
+              "type": "object",
+              "properties": {
+                "vetName": {
+                  "type": "string"
+                },
+                "vetSpecialization": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "vetEmail": {
+                  "type": "string",
+                  "format": "email"
+                },
+                "vetPhoneNumber": {
+                  "type": "string",
+                  "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
+                }
+              },
+              "required": [
+                "vetName",
+                "vetSpecialization",
+                "vetEmail",
+                "vetPhoneNumber"
               ]
             }
           },
-          "vet": {
-            "type": "object",
-            "properties": {
-              "vetName": {
-                "type": "string"
-              },
-              "vetSpecialization": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "vetEmail": {
-                "type": "string",
-                "format": "email"
-              },
-              "vetPhoneNumber": {
-                "type": "string",
-                "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
-              }
+          "required": [
+            "username",
+            "species",
+            "breed",
+            "color",
+            "gender",
+            "age",
+            "owner",
+            "vaccines",
+            "vet"
+          ]
+        }
+      },
+      "UserId": {
+        "name": "id",
+        "in": "path",
+        "description": "User ID",
+        "required": true,
+        "type": "string"
+      },
+      "ReviewData": {
+        "in": "body",
+        "name": "review",
+        "description": "Review object",
+        "required": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "rating": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5
             },
-            "required": [
-              "vetName",
-              "vetSpecialization",
-              "vetEmail",
-              "vetPhoneNumber"
-            ]
-          }
-        },
-        "required": [
-          "username",
-          "species",
-          "breed",
-          "color",
-          "gender",
-          "age",
-          "owner",
-          "vaccines",
-          "vet"
-        ]
-      }
-    },
-    "UserId": {
-      "name": "id",
-      "in": "path",
-      "description": "User ID",
-      "required": true,
-      "type": "string"
-    },
-    "ReviewData": {
-      "in": "body",
-      "name": "review",
-      "description": "Review object",
-      "required": true,
-      "schema": {
-        "type": "object",
-        "properties": {
-          "rating": {
-            "type": "integer",
-            "minimum": 1,
-            "maximum": 5
+            "comment": {
+              "type": "string",
+              "maxLength": 200
+            }
           },
-          "comment": {
-            "type": "string",
-            "maxLength": 200
-          }
-        },
-        "required": [
-          "rating",
-          "comment"
-        ]
+          "required": [
+            "rating",
+            "comment"
+          ]
+        }
+      },
+      "ReviewId": {
+        "name": "id",
+        "in": "path",
+        "description": "Review ID",
+        "required": true,
+        "type": "string"
       }
-    },
-    "ReviewId": {
-      "name": "id",
-      "in": "path",
-      "description": "Review ID",
-      "required": true,
-      "type": "string"
     }
   }
 }
