@@ -14,7 +14,7 @@ const getAllReviews = async (req, res, next) => {
   }
 };
 
-  
+
 // Gets a single review
 const getSingleReview = async (req, res, next) => {
   try {
@@ -36,12 +36,13 @@ const getSingleReview = async (req, res, next) => {
 // Create a POST 
 const createReview = async (req, res) => {
   try {
-    const review = req.body; // Assuming req.body contains the user data
+    const review = req.body; // Assuming req.body contains the review data
 
     const response = await mongodb.getDb().db('Vet').collection('reviews').insertOne({ review });
 
     if (response.acknowledged) {
-      res.status(201).json({ message: 'Review created successfully' });
+      const newReviewId = response.insertedId; // Get the new review ID
+      res.status(201).json({ message: 'Review created successfully', reviewId: newReviewId });
     } else {
       res.status(500).json({ error: 'Failed to create Review' });
     }
@@ -50,5 +51,7 @@ const createReview = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
-  
-  module.exports = { getAllReviews, getSingleReview, createReview };
+
+// I still have to create the PUT and DELETE functions (they are not required for Lesson 05)
+
+module.exports = { getAllReviews, getSingleReview, createReview };

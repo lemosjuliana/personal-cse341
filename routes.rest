@@ -27,22 +27,22 @@ POST http://localhost:8082/users HTTP/1.1
 content-type: application/json
 
  {
-    "username": "maximus007",
+    "username": "Buddy",
     "species": "Dog",
     "breed": "German Shepherd",
     "color": "Black and Tan",
     "gender": "Male",
-    "age": 4,
+    "age": 6,
     "owner": {
-        "ownerName": "Mark Johnson",
-        "ownerEmail": "mark.johnson@gmail.com",
+        "ownerName": "Sarah Johnson",
+        "ownerEmail": "sarah.johnson@gmail.com",
         "ownerPhoneNumber": "555-555-5555",
-        "ownerAddress": "202 Maple Avenue"
+        "ownerAddress": "204 Maple Avenue"
     },
     "vaccines": [
         {
             "vaccineType": "Parvovirus",
-            "date": "2022-06-10",
+            "date": "2022-06-18",
             "secondDose": true
         }
     ],
@@ -52,29 +52,29 @@ content-type: application/json
         "vetEmail": "drmartinez@gmail.com",
         "vetPhoneNumber": "555-555-5555"
     }
-  }
+}
 
 ### Update User
 PUT http://localhost:8082/users/6529f3904db2eab77d05af12 HTTP/1.1
 content-type: application/json
 
 {
-    "username": "maximus007",
+    "username": "Luna",
     "species": "Dog",
     "breed": "German Shepherd",
-    "color": "Black and Tan",
-    "gender": "Male",
+    "color": "Black",
+    "gender": "Female",
     "age": 4,
     "owner": {
-        "ownerName": "Mark Johnson",
-        "ownerEmail": "mark.johnson@gmail.com",
+        "ownerName": "Sarah Johnson",
+        "ownerEmail": "sarah.johnson@gmail.com",
         "ownerPhoneNumber": "555-555-5555",
-        "ownerAddress": "202 Maple Avenue"
+        "ownerAddress": "204 Maple Avenue"
     },
     "vaccines": [
         {
             "vaccineType": "Parvovirus",
-            "date": "2022-06-10",
+            "date": "2022-06-18",
             "secondDose": true
         }
     ],
@@ -84,7 +84,7 @@ content-type: application/json
         "vetEmail": "drmartinez@gmail.com",
         "vetPhoneNumber": "555-555-5555"
     }
-  }
+}
 
 ### Delete User
 
@@ -149,7 +149,7 @@ PUT http://lemos-cse341-personal.onrender.com/users/6529f3904db2eab77d05af11 HTT
 content-type: application/json
 
 {
-    "username": "Buddy",
+    "username": "Luna",
     "species": "Dog",
     "breed": "German Shepherd",
     "color": "Black",
@@ -176,7 +176,6 @@ content-type: application/json
     }
 }
 
-
 ### Delete User
 
 DELETE https://lemos-cse341-personal.onrender.com/users/6529f3904db2eab77d05af11 HTTP/1.1
@@ -186,27 +185,31 @@ DELETE https://lemos-cse341-personal.onrender.com/users/6529f3904db2eab77d05af11
 ##########################################################################################
 
 # Get all reviews LOCALHOST
-GET http://localhost:8082/users
+GET http://localhost:8082/reviews
 
 # Get a specific review by ID LOCALHOST
 ###
-GET http://localhost:8082/users/65276330bf159f70ea2e0f47
+GET http://localhost:8082/reviews/65276330bf159f70ea2e0f47
 ###
-GET http://localhost:8082/users/652a16a02f4a246207124a6a
+GET http://localhost:8082/reviews/652a16a02f4a246207124a6a
 ###
-GET http://localhost:8082/users/652a17152f4a246207124a6b
+GET http://localhost:8082/reviews/652a17152f4a246207124a6b
 ###
-GET http://localhost:8082/users/652a178c2f4a246207124a6c
+GET http://localhost:8082/reviews/652a178c2f4a246207124a6c
 ###
-GET http://localhost:8082/users/652a2856b3987af6bf6b85af
+GET http://localhost:8082/reviews/652a2856b3987af6bf6b85af
+###
+GET http://localhost:8082/reviews/652ab21ff45856f769d377a3
+###
+GET http://localhost:8082/reviews/652ab300f45856f769d377a4
 
 
 ### Test POST
-GET http://localhost:8082/users/652a2856b3987af6bf6b85af
+GET http://localhost:8082/reviews/652a2856b3987af6bf6b85af
 
 ### Create Review
 
-POST http://localhost:8082/users HTTP/1.1
+POST http://localhost:8082/reviews HTTP/1.1
 content-type: application/json
 
   {
@@ -215,42 +218,46 @@ content-type: application/json
   }
 
 ### Update Review
-PUT http://localhost:8082/users/652a2856b3987af6bf6b85af HTTP/1.1
+PUT http://localhost:8082/reviews/652a2856b3987af6bf6b85af HTTP/1.1
 content-type: application/json
 
  {
-    "rating": 4,
-    "comment": "My cat was feeling okay, so I am happy!"         
+    "rating": 5,
+    "comment": "My cat was feeling awesome, so I am happy!"         
   }
 
 ### Delete Review
 
-DELETE http://localhost:8082/users/652a2856b3987af6bf6b85af HTTP/1.1
+DELETE http://localhost:8082/reviews/652a2856b3987af6bf6b85af HTTP/1.1
 
 
 #################################################
 
 # Get all Reviews RENDER
-GET https://lemos-cse341-personal.onrender.com/users
+GET https://lemos-cse341-personal.onrender.com/reviews
 
 # Get a specific review by ID RENDER
 ###
-GET https://lemos-cse341-personal.onrender.com/users/65276330bf159f70ea2e0f47
+GET https://lemos-cse341-personal.onrender.com/reviews/65276330bf159f70ea2e0f47
 ###
-GET https://lemos-cse341-personal.onrender.com/users/652a16a02f4a246207124a6a
+GET https://lemos-cse341-personal.onrender.com/reviews/652a16a02f4a246207124a6a
 ###
-GET https://lemos-cse341-personal.onrender.com/users/652a17152f4a246207124a6b
+GET https://lemos-cse341-personal.onrender.com/reviews/652a17152f4a246207124a6b
 ###
-GET https://lemos-cse341-personal.onrender.com/users/652a178c2f4a246207124a6c
+GET https://lemos-cse341-personal.onrender.com/reviews/652a178c2f4a246207124a6c
 ###
-GET https://lemos-cse341-personal.onrender.com/users/6652a2856b3987af6bf6b85af
+GET https://lemos-cse341-personal.onrender.com/reviews/6652a2856b3987af6bf6b85af
+###
+GET https://lemos-cse341-personal.onrender.com/reviews/652ab21ff45856f769d377a3
+###
+GET https://lemos-cse341-personal.onrender.com/reviews/652ab300f45856f769d377a4
 
 ### Test POST
-GET https://lemos-cse341-personal.onrender.com/users/652a2856b3987af6bf6b85af
+GET https://lemos-cse341-personal.onrender.com/reviews/652a2856b3987af6bf6b85af
 
 ### Create Review
 
-POST https://lemos-cse341-personal.onrender.com/users HTTP/1.1
+POST https://lemos-cse341-personal.onrender.com/reviews HTTP/1.1
 content-type: application/json
 
 {
@@ -259,17 +266,17 @@ content-type: application/json
 }
 
 ### Update Review
-PUT http://lemos-cse341-personal.onrender.com/users/652a2856b3987af6bf6b85af HTTP/1.1
+PUT http://lemos-cse341-personal.onrender.com/reviews/652a2856b3987af6bf6b85af HTTP/1.1
 content-type: application/json
 
 {
-    "rating": 4,
-    "comment": "My cat was feeling okay, so I am happy!"         
+    "rating": 5,
+    "comment": "My cat was feeling awesome, so I am happy!"         
 }
 
 ### Delete Review
 
-DELETE https://lemos-cse341-personal.onrender.com/users/652a2856b3987af6bf6b85af HTTP/1.1
+DELETE https://lemos-cse341-personal.onrender.com/reviews/652a2856b3987af6bf6b85af HTTP/1.1
 
 
 
