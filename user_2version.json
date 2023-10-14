@@ -1,6 +1,5 @@
 [
     {
-        "user": {
             "username": "fluffy123",
             "species": "Dog",
             "breed": "Golden Retriever",
@@ -29,12 +28,11 @@
                 "vetName": "Dr. Smith",
                 "vetSpecialization": ["Internal Medicine", "Surgery"],
                 "vetEmail": "drsmith@gmail.com",
-                "vetPhoneNumber": "555-555-5555"
+                "vetPhoneNumber": "555-555-5556"
             }
-        }
+
     },
     {
-        "user": {
             "username": "whiskers789",
             "species": "Cat",
             "breed": "Siamese",
@@ -44,7 +42,7 @@
             "owner": {
                 "ownerName": "Jane Hoover",
                 "ownerEmail": "jane.hoover@gmail.com",
-                "ownerPhoneNumber": "555-555-5555",
+                "ownerPhoneNumber": "555-555-5557",
                 "ownerAddress": "456 Oak Avenue"
             },
             "vaccines": [
@@ -58,12 +56,10 @@
                 "vetName": "Dr. Johnson",
                 "vetSpecialization": ["Dentistry"],
                 "vetEmail": "drjohnson@gmail.com",
-                "vetPhoneNumber": "555-555-5555"
+                "vetPhoneNumber": "555-555-5558"
             }
-        }
     },
     {
-        "user": {
             "username": "buddy456",
             "species": "Dog",
             "breed": "Labrador Retriever",
@@ -73,7 +69,7 @@
             "owner": {
                 "ownerName": "Sarah Williams",
                 "ownerEmail": "sarahw@gmail.com",
-                "ownerPhoneNumber": "555-555-5555",
+                "ownerPhoneNumber": "555-555-5559",
                 "ownerAddress": "789 Pine Street"
             },
             "vaccines": [
@@ -87,12 +83,11 @@
                 "vetName": "Dr. Davis",
                 "vetSpecialization": ["Cardiology"],
                 "vetEmail": "drdavis@gmail.com",
-                "vetPhoneNumber": "555-555-5555"
+                "vetPhoneNumber": "555-555-5510"
             }
-        }
+
     },
     {
-        "user": {
             "username": "mittens101",
             "species": "Cat",
             "breed": "Persian",
@@ -102,7 +97,7 @@
             "owner": {
                 "ownerName": "Michael Turner",
                 "ownerEmail": "michael.turner@gmail.com",
-                "ownerPhoneNumber": "555-555-5555",
+                "ownerPhoneNumber": "555-555-5511",
                 "ownerAddress": "101 Elm Street"
             },
             "vaccines": [
@@ -116,12 +111,10 @@
                 "vetName": "Dr. Anderson",
                 "vetSpecialization": ["Dermatology"],
                 "vetEmail": "dranderson@gmail.com",
-                "vetPhoneNumber": "555-555-5555"
+                "vetPhoneNumber": "555-555-5512"
             }
-        }
     },
     {
-        "user": {
             "username": "maximus007",
             "species": "Dog",
             "breed": "German Shepherd",
@@ -131,7 +124,7 @@
             "owner": {
                 "ownerName": "Mark Johnson",
                 "ownerEmail": "mark.johnson@gmail.com",
-                "ownerPhoneNumber": "555-555-5555",
+                "ownerPhoneNumber": "555-555-5513",
                 "ownerAddress": "202 Maple Avenue"
             },
             "vaccines": [
@@ -145,9 +138,8 @@
                 "vetName": "Dr. Martinez",
                 "vetSpecialization": ["Orthopedics"],
                 "vetEmail": "drmartinez@gmail.com",
-                "vetPhoneNumber": "555-555-5555"
+                "vetPhoneNumber": "555-555-5514"
             }
-        }
+        
     }
-
 ]

@@ -7,7 +7,9 @@
   },
   "host": "lemos-cse341-personal.onrender.com",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": [
+    "https"
+  ],
   "paths": {
     "/api-docs": {
       "get": {
@@ -22,7 +24,9 @@
     "/user/": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -52,7 +56,9 @@
     "/user/{id}": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "$ref": "#/parameters/UserId"
@@ -71,7 +77,9 @@
     "/review/": {
       "get": {
         "description": "",
-        "produces": ["application/json"],
+        "produces": [
+          "application/json"
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -82,27 +90,36 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new review",
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "rating": {
-                  "example": "any"
-                },
-                "comment": {
-                  "example": "any"
-                }
-              }
-            }
+            "$ref": "#/parameters/ReviewData"
           }
         ],
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/review/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/ReviewId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           },
           "500": {
             "description": "Internal Server Error"
@@ -156,7 +173,12 @@
                 "type": "string"
               }
             },
-            "required": ["ownerName", "ownerEmail", "ownerPhoneNumber", "ownerAddress"]
+            "required": [
+              "ownerName",
+              "ownerEmail",
+              "ownerPhoneNumber",
+              "ownerAddress"
+            ]
           },
           "vaccines": {
             "type": "array",
@@ -174,7 +196,11 @@
                   "type": "boolean"
                 }
               },
-              "required": ["vaccineType", "date", "secondDose"]
+              "required": [
+                "vaccineType",
+                "date",
+                "secondDose"
+              ]
             }
           },
           "vet": {
@@ -198,16 +224,62 @@
                 "pattern": "^[0-9]{3}-[0-9]{3}-[0-9]{4}$"
               }
             },
-            "required": ["vetName", "vetSpecialization", "vetEmail", "vetPhoneNumber"]
+            "required": [
+              "vetName",
+              "vetSpecialization",
+              "vetEmail",
+              "vetPhoneNumber"
+            ]
           }
         },
-        "required": ["username", "species", "breed", "color", "gender", "age", "owner", "vaccines", "vet"]
+        "required": [
+          "username",
+          "species",
+          "breed",
+          "color",
+          "gender",
+          "age",
+          "owner",
+          "vaccines",
+          "vet"
+        ]
       }
     },
     "UserId": {
       "name": "id",
       "in": "path",
       "description": "User ID",
+      "required": true,
+      "type": "string"
+    },
+    "ReviewData": {
+      "in": "body",
+      "name": "review",
+      "description": "Review object",
+      "required": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "rating": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "comment": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "required": [
+          "rating",
+          "comment"
+        ]
+      }
+    },
+    "ReviewId": {
+      "name": "id",
+      "in": "path",
+      "description": "Review ID",
       "required": true,
       "type": "string"
     }
