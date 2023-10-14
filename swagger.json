@@ -5,7 +5,7 @@
     "description": "Contacts API",
     "version": "1.0.0"
   },
-  "host": "lemos-cse341-node.onrender.com",
+  "host": "lemos-cse341-personal.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -37,27 +37,7 @@
         }
       },
       "post": {
-        "description": "Create a new user",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "user",
-            "description": "User object",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "username": {
-                  "type": "string"
-                },
-                "species": {
-                  "type": "string"
-                }
-              },
-              "required": ["username", "species"]
-            }
-          }
-        ],
+        "description": "",
         "responses": {
           "201": {
             "description": "Created"
@@ -66,7 +46,8 @@
             "description": "Internal Server Error"
           }
         }
-      }, 
+      }
+    },
     "/user/{id}": {
       "get": {
         "description": "",
@@ -136,5 +117,4 @@
       }
     }
   }
-}
 }

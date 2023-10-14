@@ -1,14 +1,13 @@
 const swaggerAutogen = require('swagger-autogen')();
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./routes/index.js']; // Update this with the correct path to your routes file
-
+const endpointsFiles = ['./routes/index.js']; 
 const doc = {
   info: {
     title: 'My API',
     description: 'Contacts API',
   },
-  host: 'lemos-cse341-node.onrender.com',
+  host: 'lemos-cse341-personal.onrender.com',
   schemes: ['https'],
   //host: 'localhost',
   //schemes: ['http'],
