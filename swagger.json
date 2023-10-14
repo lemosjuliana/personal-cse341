@@ -13,7 +13,7 @@
   "tags": [
     {
       "name": "Users",
-      "description": "Operation about the Pets"
+      "description": "Operation about the Users (pets)"
     },
     {
       "name": "Reviews",
