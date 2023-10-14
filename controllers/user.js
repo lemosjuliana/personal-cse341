@@ -51,9 +51,18 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { getAllUsers, getSingleUser, createUser };
-
 // I still have to create the PUT and DELETE functions (they are not required for Lesson 05)
+
+const updateUser = async (req, res) => {
+  // Function will be created
+};
+
+const deleteUser = async (req, res) => {
+  // Function will be created
+};
+
+module.exports = { getAllUsers, getSingleUser, createUser, updateUser, deleteUser };
+
 
 // module.exports = { getAll, getSingle, createContact, updateContact, deleteContact };
 

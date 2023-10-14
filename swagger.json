@@ -53,6 +53,39 @@
         }
       }
     },
+    "put": {
+      "description": "Update an existing user",
+      "parameters": [
+        {
+          "$ref": "#/parameters/UserData"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    },
+    "delete": {
+      "description": "Delete a user",
+      "parameters": [
+        {
+          "$ref": "#/parameters/UserId"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    }
+  },
     "/user/{id}": {
       "get": {
         "description": "",
@@ -126,8 +159,7 @@
           }
         }
       }
-    }
-  },
+    },
   "parameters": {
     "UserData": {
       "in": "body",
