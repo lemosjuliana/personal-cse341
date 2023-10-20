@@ -230,7 +230,7 @@
       },
       "delete": {
         "tags": [
-          "Review"
+          "Reviews"
         ],
         "description": "Delete review",
         "parameters": [
