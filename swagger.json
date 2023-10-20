@@ -270,6 +270,32 @@
             "description": "Internal Server Error"
           }
         }
+      },
+      "delete": {
+        "tags": [
+          "Reviews"
+        ],
+        "description": "Deletes a review",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the review",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Review not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     }
   },
