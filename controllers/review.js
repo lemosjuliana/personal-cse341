@@ -52,6 +52,49 @@ const createReview = async (req, res) => {
   }
 };
 
-// I still have to create the PUT and DELETE functions (they are not required for Lesson 05)
+// Function that handles a PUT request to update a review.
+const updateReview = async (req, res, next) => {
+  try {
+    const reviewId = new ObjectId(req.params.id);
+    const updatedReview = req.body; // Assuming req.body contains the updated review data
 
-module.exports = { getAllReviews, getSingleReview, createReview };
+    const response = await mongodb
+      .getDb()
+      .db('Vet')
+      .collection('reviews')
+      .updateOne({ _id: reviewId }, { $set: updatedReview });
+
+    if (response.matchedCount === 1 && response.modifiedCount === 1) {
+      res.status(200).json({ message: 'Review updated successfully' });
+    } else {
+      res.status(404).json({ error: 'Review not found or not updated' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+// Function that handles a DELETE request.
+const deleteReview = async (req, res, next) => {
+  try {
+    const reviewId = new ObjectId(req.params.id);
+    const response = await mongodb
+      .getDb()
+      .db('Vet')
+      .collection('reviews')
+      .deleteOne({ _id: reviewId });
+
+    if (response.deletedCount === 1) {
+      res.status(200).json({ message: 'Review deleted successfully' });
+    } else {
+      res.status(404).json({ error: 'Review not found' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
+module.exports = { getAllReviews, getSingleReview, createReview, updateReview, deleteReview };

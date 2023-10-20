@@ -202,9 +202,9 @@
       },
       "put": {
         "tags": [
-          "Not Implemented Yet"
+          "Reviews"
         ],
-        "description": "Updates a review - NOT IMPLEMENTED",
+        "description": "Updates a review",
         "parameters": [
           {
             "in": "body",
@@ -230,9 +230,9 @@
       },
       "delete": {
         "tags": [
-          "Not Implemented Yet"
+          "Review"
         ],
-        "description": "Delete review - NOT IMPLEMENTED",
+        "description": "Delete review",
         "parameters": [
           {
             "$ref": "#/parameters/ReviewId"
