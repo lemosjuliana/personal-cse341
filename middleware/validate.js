@@ -7,22 +7,7 @@ const saveUser = (req, res, next) => {
     breed: 'sometimes|string',
     color: 'sometimes|string',
     gender: 'sometimes|string',
-    age: 'integer|min:0',
-    owner: 'required|object',
-    ownerName: 'required|string',
-    ownerEmail: 'required|email',
-    ownerPhoneNumber: 'required|string|regex:^[0-9]{3}-[0-9]{3}-[0-9]{4}$',
-    ownerAddress: 'required|string',
-    vaccines: 'required|array',
-    vaccineType: 'required|string',
-    date: 'required|date',
-    secondDose: 'required|boolean',
-    vet: 'required|object',
-    vetName: 'required|string',
-    vetSpecialization: 'array',
-    vetSpecialization: 'string',
-    vetEmail: 'required|email',
-    vetPhoneNumber: 'required|string|regex:^[0-9]{3}-[0-9]{3}-[0-9]{4}$'
+    age: 'integer|min:0'
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
