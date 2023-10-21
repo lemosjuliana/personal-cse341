@@ -40,7 +40,7 @@ const saveUser = (req, res, next) => {
 const saveReview = (req, res, next) => {
   const validationRule = {
     rating: 'required|integer|between:1,5',
-    comment: 'required|string|max:200',
+    comment: 'required|string|max:200', 
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
