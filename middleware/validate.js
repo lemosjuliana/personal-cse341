@@ -4,9 +4,9 @@ const saveUser = (req, res, next) => {
   const validationRule = {
     username: 'required|string',
     species: 'required|string',
-    breed: 'sometimes|string',
-    color: 'sometimes|string',
-    gender: 'sometimes|string',
+    breed: 'required|string',
+    color: 'required|string',
+    gender: 'required|string',
     age: 'integer|min:0'
   };
   validator(req.body, validationRule, {}, (err, status) => {

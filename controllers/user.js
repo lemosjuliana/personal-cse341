@@ -64,7 +64,7 @@ const updateUser = async (req, res) => {
     );
 
     if (result.modifiedCount > 0) {
-      res.status(200).json({ message: 'User updated successfully' });
+      res.status(204).json({ message: 'User updated successfully' });
     } else {
       errorResponse(res, 404, 'User not found');
     }

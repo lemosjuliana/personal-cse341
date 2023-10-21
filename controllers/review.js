@@ -59,7 +59,7 @@ const updateReview = async (req, res, next) => {
     const response = await mongodb.getDb().db('Vet').collection('reviews').updateOne({ _id: reviewId }, { $set: updatedReview });
 
     if (response.matchedCount === 1 && response.modifiedCount === 1) {
-      res.status(200).json({ message: 'Review updated successfully' });
+      res.status(204).json({ message: 'Review updated successfully' });
     } else {
       errorResponse(res, 404, 'Review not found or not updated');
     }
