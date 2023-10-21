@@ -145,7 +145,7 @@ content-type: application/json
 }
 
 ### Update User
-PUT http://lemos-cse341-personal.onrender.com/users/6529f3904db2eab77d05af11 HTTP/1.1
+PUT http://lemos-cse341-personal.onrender.com/users/652aae1bd7ca3657eeaa00ea HTTP/1.1
 content-type: application/json
 
 {
@@ -178,7 +178,7 @@ content-type: application/json
 
 ### Delete User
 
-DELETE https://lemos-cse341-personal.onrender.com/users/6529f3904db2eab77d05af11 HTTP/1.1
+DELETE https://lemos-cse341-personal.onrender.com/users/652aae1bd7ca3657eeaa00ea HTTP/1.1
 
 ##########################################################################################
 ##### Review ######
@@ -218,7 +218,7 @@ content-type: application/json
   }
 
 ### Update Review
-PUT http://localhost:8082/reviews/652a2856b3987af6bf6b85af HTTP/1.1
+PUT http://localhost:8082/reviews/653402b1cf94dacbd279ab3c HTTP/1.1
 content-type: application/json
 
  {
@@ -228,7 +228,7 @@ content-type: application/json
 
 ### Delete Review
 
-DELETE http://localhost:8082/reviews/652a2856b3987af6bf6b85af HTTP/1.1
+DELETE http://localhost:8082/reviews/653402b1cf94dacbd279ab3c HTTP/1.1
 
 
 #################################################
