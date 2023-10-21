@@ -2,11 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 const reviewController = require('../controllers/review');
+const validation = require('../middleware/validate');
 
-router.get('/', reviewController.getAllReviews);
-router.get('/:id', reviewController.getSingleReview);
-router.post('/', reviewController.createReview);
-router.put('/:id', reviewController.updateReview);
-router.delete('/:id', reviewController.deleteReview);
+router.get('/', validation.saveReview, reviewController.getAllReviews);
+router.get('/:id', validation.saveReview, reviewController.getSingleReview);
+router.post('/', validation.saveReview, reviewController.createReview);
+router.put('/:id', validation.saveReview, reviewController.updateReview);
+router.delete('/:id', validation.saveReview,  reviewController.deleteReview);
 
 module.exports = router;
