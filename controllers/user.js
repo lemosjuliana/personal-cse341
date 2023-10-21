@@ -56,9 +56,49 @@ const createUser = async (req, res) => {
 };
 
 
-// I still have to create the PUT and DELETE functions (they are not required for Lesson 05)
+const updateUser = async (req, res) => {
+  try {
+    const userId = new ObjectId(req.params.id);  // Assuming the parameter is called 'id'
+    const updatedUserData = req.body; // Assuming req.body contains the updated user data
 
-module.exports = { getAllUsers, getSingleUser, createUser };
+    const result = await mongodb
+      .getDb()
+      .db('Vet')
+      .collection('users')
+      .updateOne(
+        { _id: userId },
+        { $set: { user: updatedUserData } }
+      );
 
+    if (result.modifiedCount > 0) {
+      res.status(200).json({ message: 'User updated successfully' });
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
-// module.exports = { getAllUsers, getSingleUser, createUser, updateUser, deleteUser };
+const deleteUser = async (req, res) => {
+  try {
+    const userId = new ObjectId(req.params.id);  // Assuming the parameter is called 'id'
+    const result = await mongodb
+      .getDb()
+      .db('Vet')
+      .collection('users')
+      .deleteOne({ _id: userId });
+
+    if (result.deletedCount > 0) {
+      res.status(200).json({ message: 'User deleted successfully' });
+    } else {
+      res.status(404).json({ error: 'User not found' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+module.exports = { getAllUsers, getSingleUser, createUser, updateUser, deleteUser };
