@@ -70,7 +70,6 @@ const updateReview = async (req, res, next) => {
 };
 
 // Function that handles a DELETE request.
-
 const deleteReview = async (req, res, next) => {
   try {
     const reviewId = new ObjectId(req.params.id);
