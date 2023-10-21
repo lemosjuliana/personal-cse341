@@ -37,7 +37,6 @@ const saveUser = (req, res, next) => {
   });
 };
 
-
 const saveReview = (req, res, next) => {
   const validationRule = {
     rating: 'required|integer|between:1,5',
