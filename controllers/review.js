@@ -56,7 +56,7 @@ const updateReview = async (req, res, next) => {
     const reviewId = new ObjectId(req.params.id);
     const updatedReview = req.body;
 
-    const response = await mongodb.getDb().db('Vet').collection('reviews').updateOne({ _id: reviewId }, { $set: updatedReview });
+    const response = await mongodb.getDb().db('Vet').collection('reviews').updateOne({ _id: reviewId }, { $set: { review: updatedReview }});
 
     if (response.matchedCount === 1 && response.modifiedCount === 1) {
       res.status(204).json({ message: 'Review updated successfully' });
