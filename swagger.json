@@ -167,6 +167,26 @@
         }
       }
     },
+    "/user/{username}": {
+      "get": {
+        "tags": ["Not Implemented Yet"],
+        "description": "Get user by username (Not implemented yet)",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "Username of the user",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "501": {
+            "description": "Not Implemented"
+          }
+        }
+      }
+    },    
     "/review/": {
       "get": {
         "tags": [
