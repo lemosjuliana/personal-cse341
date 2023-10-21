@@ -9,20 +9,20 @@ const saveUser = (req, res, next) => {
     gender: 'sometimes|string',
     age: 'integer|min:0',
     owner: 'required|object',
-    'owner.ownerName': 'required|string',
-    'owner.ownerEmail': 'required|email',
-    'owner.ownerPhoneNumber': 'required|string|regex:^[0-9]{3}-[0-9]{3}-[0-9]{4}$',
-    'owner.ownerAddress': 'required|string',
+    ownerName: 'required|string',
+    ownerEmail: 'required|email',
+    ownerPhoneNumber: 'required|string|regex:^[0-9]{3}-[0-9]{3}-[0-9]{4}$',
+    ownerAddress: 'required|string',
     vaccines: 'required|array',
-    'vaccines.*.vaccineType': 'required|string',
-    'vaccines.*.date': 'required|date',
-    'vaccines.*.secondDose': 'required|boolean',
+    vaccineType: 'required|string',
+    date: 'required|date',
+    secondDose: 'required|boolean',
     vet: 'required|object',
-    'vet.vetName': 'required|string',
-    'vet.vetSpecialization': 'array',
-    'vet.vetSpecialization.*': 'string',
-    'vet.vetEmail': 'required|email',
-    'vet.vetPhoneNumber': 'required|string|regex:^[0-9]{3}-[0-9]{3}-[0-9]{4}$'
+    vetName: 'required|string',
+    vetSpecialization: 'array',
+    vetSpecialization: 'string',
+    vetEmail: 'required|email',
+    vetPhoneNumber: 'required|string|regex:^[0-9]{3}-[0-9]{3}-[0-9]{4}$'
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
