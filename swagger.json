@@ -167,7 +167,7 @@
         }
       }
     },
-    "/user/by-username/{username}": {
+    "/user/{username}": {
       "get": {
         "tags": ["Users"],
         "description": "Get user by username",
