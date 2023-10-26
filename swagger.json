@@ -167,10 +167,13 @@
         }
       }
     },
-    "/user/{username}": {
+    "/user/by-username/{username}": {
       "get": {
-        "tags": ["Not Implemented Yet"],
-        "description": "Get user by username (Not implemented yet)",
+        "tags": ["Users"],
+        "description": "Get user by username",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "username",
@@ -181,12 +184,19 @@
           }
         ],
         "responses": {
-          "501": {
-            "description": "Not Implemented"
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
-    },    
+    }
+    ,    
     "/review/": {
       "get": {
         "tags": [
