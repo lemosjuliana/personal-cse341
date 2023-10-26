@@ -279,5 +279,6 @@ content-type: application/json
 DELETE https://lemos-cse341-personal.onrender.com/reviews/652a2856b3987af6bf6b85af HTTP/1.1
 
 
-
+###
+GET https://lemos-cse341-personal.onrender.com/user/by-username/maximus007
 

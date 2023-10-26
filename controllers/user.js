@@ -36,16 +36,19 @@ const getSingleUser = async (req, res, next) => {
 };
 
 // Function that handles a GET request for a user by username
-const getUserByUsername = async (req, res, next) => {
+const getUserByUsername  = async (req, res, next) => {
   try {
-    const username = req.params.username;
-    const result = await mongodb.getDb().db('Vet').collection('users').find({ username: username }).toArray();
-
+    const username = req.params.username; // Assuming the parameter is called 'username'
+    const result = await mongodb
+      .getDb()
+      .db('Vet')
+      .collection('users')
+      .find({ 'user.username': username }) // Change the query to search by username
+      .toArray();
+    res.setHeader('Content-Type', 'application/json');
     if (!result[0]) {
       return errorResponse(res, 404, 'User not found');
     }
-
-    res.setHeader('Content-Type', 'application/json');
     res.status(200).json(result[0]);
   } catch (error) {
     console.error(error);
