@@ -20,7 +20,7 @@
       "description": "Operations about Review"
     },
     {
-      "name": "Not Implemented Yet",
+      "name": "Not Yet Implemented",
       "description": "Operations that will be implemented"
     }
   ],
@@ -169,7 +169,7 @@
     },
     "/user/{username}": {
       "get": {
-        "tags": ["Users"],
+        "tags": ["Not Yet Implemented"],
         "description": "Get user by username",
         "produces": [
           "application/json"
@@ -195,7 +195,68 @@
           }
         }
       }
-    },    
+    }, 
+    "/user/login": {
+      "get": {
+        "tags": ["Not Yet Implemented"],
+        "summary": "Logs user into the system",
+        "operationId": "loginUser",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "The user name for login",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "The password for login in clear text",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "headers": {
+              "X-Rate-Limit": {
+                "type": "integer",
+                "format": "int32",
+                "description": "calls per hour allowed by the user"
+              },
+              "X-Expires-After": {
+                "type": "string",
+                "format": "date-time",
+                "description": "date in UTC when token expires"
+              }
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "get": {
+        "tags": ["Not Yet Implemented"],
+        "summary": "Logs out current logged in user session",
+        "operationId": "logoutUser",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },   
     "/review/": {
       "get": {
         "tags": [
