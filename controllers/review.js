@@ -33,8 +33,30 @@ const getSingleReview = async (req, res, next) => {
 };
 
 // Create a POST const 
+// const createReview = async (req, res) => {
+//   try {
+//     const review = req.body;
+//     const response = await mongodb.getDb().db('Vet').collection('reviews').insertOne({ review });
+
+//     if (response.acknowledged) {
+//       const newReviewId = response.insertedId;
+//       res.status(201).json({ message: 'Review created successfully', reviewId: newReviewId });
+//     } else {
+//       errorResponse(res, 500, 'Failed to create Review');
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     errorResponse(res, 500, 'Internal Server Error');
+//   }
+// };
+
 const createReview = async (req, res) => {
   try {
+    // Check if user is authenticated
+    if (!req.oidc.isAuthenticated()) {
+      return errorResponse(res, 401, 'Unauthorized. Please login to post a review.');
+    }
+
     const review = req.body;
     const response = await mongodb.getDb().db('Vet').collection('reviews').insertOne({ review });
 
@@ -49,6 +71,7 @@ const createReview = async (req, res) => {
     errorResponse(res, 500, 'Internal Server Error');
   }
 };
+
 
 // Function that handles a PUT request to update a review.
 const updateReview = async (req, res, next) => {
