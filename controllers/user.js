@@ -59,9 +59,69 @@ const getUserByUsername = async (req, res) => {
   }
 };
 
+// // Create a new user
+// const createUser = async (req, res) => {
+//   try {
+//     const user = req.body;
+//     const response = await mongodb.getDb().db('Vet').collection('users').insertOne({ user });
+
+//     if (response.acknowledged) {
+//       const newUserId = response.insertedId;
+//       res.status(201).json({ message: 'User created successfully', userId: newUserId });
+//     } else {
+//       errorResponse(res, 500, 'Failed to create user');
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     errorResponse(res, 500, 'Internal Server Error');
+//   }
+// };
+
+// // Update user by id
+// const updateUser = async (req, res) => {
+//   try {
+//     const userId = new ObjectId(req.params.id);
+//     const updatedUserData = req.body;
+//     const result = await mongodb.getDb().db('Vet').collection('users').updateOne(
+//       { _id: userId },
+//       { $set: { user: updatedUserData } }
+//     );
+
+//     if (result.modifiedCount > 0) {
+//       res.status(204).json({ message: 'User updated successfully' });
+//     } else {
+//       errorResponse(res, 404, 'User not found');
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     errorResponse(res, 500, 'Internal Server Error');
+//   }
+// };
+
+// // Delete a single user
+// const deleteUser = async (req, res) => {
+//   try {
+//     const userId = new ObjectId(req.params.id);
+//     const result = await mongodb.getDb().db('Vet').collection('users').deleteOne({ _id: userId });
+
+//     if (result.deletedCount > 0) {
+//       res.status(200).json({ message: 'User deleted successfully' });
+//     } else {
+//       errorResponse(res, 404, 'User not found');
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     errorResponse(res, 500, 'Internal Server Error');
+//   }
+// };
+
 // Create a new user
 const createUser = async (req, res) => {
   try {
+    if (!req.oidc.isAuthenticated()) {
+      return errorResponse(res, 401, 'Unauthorized. Please login to create a user.');
+    }
+
     const user = req.body;
     const response = await mongodb.getDb().db('Vet').collection('users').insertOne({ user });
 
@@ -80,6 +140,10 @@ const createUser = async (req, res) => {
 // Update user by id
 const updateUser = async (req, res) => {
   try {
+    if (!req.oidc.isAuthenticated()) {
+      return errorResponse(res, 401, 'Unauthorized. Please login to update a user.');
+    }
+
     const userId = new ObjectId(req.params.id);
     const updatedUserData = req.body;
     const result = await mongodb.getDb().db('Vet').collection('users').updateOne(
@@ -101,6 +165,10 @@ const updateUser = async (req, res) => {
 // Delete a single user
 const deleteUser = async (req, res) => {
   try {
+    if (!req.oidc.isAuthenticated()) {
+      return errorResponse(res, 401, 'Unauthorized. Please login to delete a user.');
+    }
+
     const userId = new ObjectId(req.params.id);
     const result = await mongodb.getDb().db('Vet').collection('users').deleteOne({ _id: userId });
 
