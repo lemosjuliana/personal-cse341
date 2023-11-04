@@ -35,30 +35,6 @@ const getSingleUser = async (req, res, next) => {
   }
 };
 
-// Function that handles a GET request for a user by username
-const getUserByUsername = async (req, res) => {
-  try {
-    const username = req.params.username;
-    const result = await mongodb
-      .getDb()
-      .db('Vet')
-      .collection('users')
-      .find({ 'user.username': username })
-      .toArray();
-
-    res.setHeader('Content-Type', 'application/json');
-
-    if (!result[0]) {
-      return errorResponse(res, 404, 'User not found');
-    }
-
-    res.status(200).json(result[0]);
-  } catch (error) {
-    console.error(error);
-    errorResponse(res, 500, 'Internal Server Error');
-  }
-};
-
 // Create a new user
 const createUser = async (req, res) => {
   try {
