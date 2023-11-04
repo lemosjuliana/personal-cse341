@@ -20,10 +20,6 @@
       "description": "Operations about Review"
     },
     {
-      "name": "Not Yet Implemented",
-      "description": "Operations that will be implemented"
-    },
-    {
       "name": "Profile",
       "description": "See profile"
     }
